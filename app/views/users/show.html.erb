@@ -9,12 +9,26 @@
   </article>
 </section>
 
-<section class="user-section">
-  <h2>confirmed friends</h2>
-    <ul class="posts">
-    <%@user.friendships.each do |friendship|%>
-       <li><%=friendship.friend.email%></li>
-      <%end%>
-    </ul>
+<div class="d-flex">
+  <section class="user-section mx-3">
+  <h2>friends</h2>
+  <ul class="posts">
+  <%@user.friends.each do |friendship|%>
+  <li><%=friendship.name.capitalize%></li>
+  <%end%>
+  </ul>
 
-</section>
+  </section>
+  <section class="user-section text-nowrap">
+  <h2>Pending friends</h2>
+  <ul class="posts">
+  <%@user.pending_friends.each do |friend|%>
+  <li>
+    <%=friend.name.capitalize%>
+     <%= link_to 'Accept Friend Request',  friendship_path(friend_id:friend.id), class: 'btn btn-primary', method:"patch" %>
+  </li>
+  <%end%>
+  </ul>
+
+  </section>
+</div>

@@ -6,6 +6,8 @@
         Name: <%= user.name %>
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+
+          <%= link_to 'Send Friend Request',  friendships_path(friend_id:user.id), class: 'btn btn-primary', method:"post" %>
         </span>
       </li>
     <% end %>
