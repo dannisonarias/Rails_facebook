@@ -25,7 +25,9 @@
   <%@user.pending_friends.each do |friend|%>
   <li>
     <%=friend.name.capitalize%>
+    <%if current_user == @user%>
      <%= link_to 'Accept Friend Request',  friendship_path(friend_id:friend.id), class: 'btn btn-primary', method:"patch" %>
+    <%end%>
   </li>
   <%end%>
   </ul>
