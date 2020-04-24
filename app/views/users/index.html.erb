@@ -1,4 +1,5 @@
 <%=console%>
+<%= render 'shared/errors'%>
 <section class="users-section">
   <ul class="users-list">
     <% @users.each do |user| %>
@@ -6,8 +7,10 @@
         Name: <%= user.name %>
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-
-          <%= link_to 'Send Friend Request',  friendships_path(friend_id:user.id), class: 'btn btn-primary', method:"post" %>
+          <%if current_user.id != user.id && !current_user.friendships.any?{|i| i.friend_id == user.id}%>
+            <%= link_to 'Send Friend Request',  friendships_path(friend_id:user.id), class: 'btn btn-primary', method:"post" %>
+            
+          <%end%>
         </span>
       </li>
     <% end %>

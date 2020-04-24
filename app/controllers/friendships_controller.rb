@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+    before_action :validator
+
     def create
         @friendship = Friendship.new(user_id:current_user.id,friend_id:friendship_params[:friend_id])
         if @friendship.save
@@ -19,6 +21,15 @@ class FriendshipsController < ApplicationController
         else
             flash[:warning] = "error accepting friend request"
             redirect_to user_path
+        end
+    end
+
+    def validator
+        debugger
+        if current_user.id == friendship_params[:friend_id].to_i
+            flash[:warning] = "you can't add yourself"
+            redirect_to users_path
+            return
         end
     end
 
