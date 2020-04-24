@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester_id: 
+  addressee_id: 
+  status: 
+
+two:
+  requester_id: 
+  addressee_id: 
+  status: 

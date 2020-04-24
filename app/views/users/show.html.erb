@@ -1,3 +1,4 @@
+<%=console%>
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
   <article class="timeline">
@@ -6,4 +7,14 @@
       <%= render @posts %>
     </ul>
   </article>
+</section>
+
+<section class="user-section">
+  <h2>confirmed friends</h2>
+    <ul class="posts">
+    <%@user.friendships.each do |friendship|%>
+       <li><%=friendship.friend.email%></li>
+      <%end%>
+    </ul>
+
 </section>

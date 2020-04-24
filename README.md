@@ -1,7 +1,6 @@
 # Scaffold for social media app with Ruby on Rails
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
-=======
 
 ![screenshot](/ss.png)
 This README would normally document whatever steps are necessary to get the
@@ -81,6 +80,8 @@ Feel free to check the [issues page](issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+
+https://www.linkedin.com/in/kspranav10/
 
 TBA
 
