@@ -19,7 +19,7 @@ RSpec.describe Friendship, type: :model do
 
     end
 
-    it 'login user' do
+    it 'sends friend request and expects receiver to recieve it' do
         visit new_user_session_path
         fill_in 'user[email]', with: @user3[:email]
         fill_in 'user[password]',with: "testing123"
@@ -30,6 +30,6 @@ RSpec.describe Friendship, type: :model do
         sleep(20)
         expect(page).to have_content 'Accept Friend Request'
     end
-
+    
   end
 end
