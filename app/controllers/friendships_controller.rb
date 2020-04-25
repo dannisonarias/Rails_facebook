@@ -12,8 +12,8 @@ class FriendshipsController < ApplicationController
     end
 
     def update
-        @friendship = Friendship.find_by(user_id:current_user.id,friend_id:params[:friend_id])
-        @friendship.confirmed = true
+        @friendship = Friendship.find_by(user_id:params[:friend_id].to_i,friend_id:current_user.id)
+        @friendship[:confirmed] = true
         if @friendship.save
             flash[:success] = "friend request accepted"
             redirect_to user_path

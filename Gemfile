@@ -50,10 +50,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
+  gem 'hirb'
+
 end
 
 group :test do
+  gem 'launchy'
   # Adds support for Capybara system testing and selenium driver
+  gem 'rspec-rails'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
