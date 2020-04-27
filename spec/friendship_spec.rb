@@ -28,5 +28,11 @@ RSpec.describe Friendship, type: :model do
       @friendship = Friendship.new(user_id: @user1.id, friend_id: @user1.id)
       expect(@friendship.valid?).to eq(false)
     end
+
+    it 'sends friend request and expects to have a pending friend' do
+      @friendship = Friendship.create(user_id: @user1.id, friend_id: @user2.id)
+      expect(@user1.pending_friends.first).to be_truthy
+    end
+
   end
 end

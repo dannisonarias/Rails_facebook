@@ -25,5 +25,6 @@ RSpec.describe Friendship, type: :model do
       visit user_path @user3
       expect(page).to have_content 'Accept Friend Request'
     end
+
   end
 end
