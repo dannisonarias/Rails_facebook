@@ -26,5 +26,14 @@ RSpec.describe Friendship, type: :model do
       expect(page).to have_content 'Accept Friend Request'
     end
 
+    it 'sends friend request and expects receiver to recieve it' do
+      visit new_user_session_path
+      fill_in 'user[email]', with: @user3[:email]
+      fill_in 'user[password]', with: 'testing123'
+      click_button(value: 'Log in')
+      visit user_path @user3
+      expect(page).to have_content 'Decline Friend Request'
+    end
+
   end
 end
