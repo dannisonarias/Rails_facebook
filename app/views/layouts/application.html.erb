@@ -18,8 +18,11 @@
           <%= menu_link_to 'All users', users_path %>
         </div>
       </div>
+      <%unless current_user.nil?%>
+        <%= link_to "#{current_user.name}'s Profile", current_user,:class=>"mr-2" %>
+      <%end%>
       <% if current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <%= link_to " #{current_user.name} Sign out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign in', user_session_path %>
       <% end %>

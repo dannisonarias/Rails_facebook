@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
   end
+
+  def authenticate_friends
+    @user = User.find(params[:id])
+    return if current_user.friend?(@user) || @user == current_user
+
+    redirect_to users_path, notice: 'Users profile is private!'
+  end
 end
