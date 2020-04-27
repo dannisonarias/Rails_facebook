@@ -38,6 +38,5 @@ RSpec.describe Friendship, type: :model do
       @friendship = Friendship.create(user_id: @user1.id, friend_id: @user2.id)
       expect(@user2.friend_requests.first).to be_truthy
     end
-
   end
 end

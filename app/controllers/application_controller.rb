@@ -12,9 +12,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate_friends
     @user = User.find(params[:id])
-    unless current_user.friend?(@user) || @user == current_user
-      redirect_to users_path, :notice => "Users profile is private!"
-    end
-  end
+    return if current_user.friend?(@user) || @user == current_user
 
+    redirect_to users_path, notice: 'Users profile is private!'
+  end
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_friends , only: :show
+  before_action :authenticate_friends, only: :show
 
   def index
     @users = User.includes(:friendships)

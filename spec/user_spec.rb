@@ -47,7 +47,5 @@ RSpec.describe User, type: :model do
       @falseuser8.save
       expect(@falseuser8.valid?).to eq(false)
     end
-
-
   end
 end
