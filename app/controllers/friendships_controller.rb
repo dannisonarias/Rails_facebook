@@ -20,6 +20,16 @@ class FriendshipsController < ApplicationController
     redirect_to user_path
   end
 
+  def destroy
+    @friendship = Friendship.find_by(user_id: params[:friend_id].to_i, friend_id: current_user.id)
+    if @friendship.delete
+      flash[:success] = 'friend request declined'
+    else
+      flash[:warning] = 'error declining friend request'
+    end
+    redirect_to user_path
+  end
+
   def friendship_params
     params.permit(:friend_id)
   end

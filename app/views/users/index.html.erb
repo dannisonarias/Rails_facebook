@@ -6,7 +6,7 @@
         Name: <%= user.name %>
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-          <%if !current_user.friend?(user) &&  current_user != user %>
+          <%if !current_user.friend?(user) &&  current_user != user && !pending_friend?(user) %>
               <%= link_to 'Send Friend Request',  friendships_path(friend_id:user.id), class: 'btn btn-primary', method:"post" %>
             <%elsif current_user != user && !current_user.friends  %>
              <a href="#" class="btn btn-secondary  disabled" role="button" aria-disabled="true">Pending</a>
