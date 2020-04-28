@@ -44,6 +44,5 @@ RSpec.describe Friendship, type: :model do
       click_link('Decline Friend Request')
       expect(page).should have_no_content 'Decline Friend Request'
     end
-
   end
 end

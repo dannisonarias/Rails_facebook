@@ -35,10 +35,9 @@ class FriendshipsController < ApplicationController
     redirect_to user_path
   end
 
-    private
+  private
 
   def friendship_params
     params.permit(:friend_id)
   end
-
 end
