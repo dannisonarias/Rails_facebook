@@ -13,7 +13,7 @@
   <section class="user-section mx-3">
   <h2>friends</h2>
   <ul class="posts">
-  <%@user.reload.friends.each do |friendship|%>
+  <%@user.friends.each do |friendship|%>
   <li><%=friendship.name.capitalize%></li>
   <%end%>
   </ul>

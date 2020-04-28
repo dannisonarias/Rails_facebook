@@ -1,10 +1,15 @@
 class FriendshipsController < ApplicationController
   def create
     @friendship = Friendship.new(user_id: current_user.id, friend_id: friendship_params[:friend_id])
-    if @friendship.save
-      flash[:success] = 'friend request sent!'
+    @reverse_friendship = Friendship.new(friend_id: current_user.id, user_id: friendship_params[:friend_id])
+
+    if @reverse_friendship.valid? && @friendship.valid?
+      ActiveRecord::Base.transaction do
+        @friendship.save
+        @reverse_friendship.save
+      end
     else
-      flash[:warning] = 'friend request failed!'
+      flash[:warning] = 'Error sending friend request'
     end
     redirect_to users_path
   end
@@ -30,7 +35,10 @@ class FriendshipsController < ApplicationController
     redirect_to user_path
   end
 
+    private
+
   def friendship_params
     params.permit(:friend_id)
   end
+
 end
