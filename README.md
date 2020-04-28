@@ -2,7 +2,7 @@
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
-![screenshot](/ss.png)
+igr
 This README would normally document whatever steps are necessary to get the
 
 
