@@ -9,9 +9,9 @@ RSpec.describe "Friendships", type: :request do
       end
     
     it "create new friendship, expects 2 rows to be added" do
+      # add Devise::Test::IntegrationHelpers in rails config/rails helper to access "devise sign_in"
         sign_in @user1
         post '/friendships?friend_id=2'
         expect(Friendship.all.count).to eq(2)
     end
-    
   end
