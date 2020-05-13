@@ -1,13 +1,9 @@
 class FriendshipsController < ApplicationController
   def create
     @friendship = Friendship.new(user_id: current_user.id, friend_id: friendship_params[:friend_id])
-    @reverse_friendship = Friendship.new(friend_id: current_user.id, user_id: friendship_params[:friend_id])
-
-    if @reverse_friendship.valid? && @friendship.valid?
-      ActiveRecord::Base.transaction do
+    # @reverse_friendship = Friendship.new(friend_id: current_user.id, user_id: friendship_params[:friend_id])
+    if @friendship.valid?
         @friendship.save
-        @reverse_friendship.save
-      end
     else
       flash[:warning] = 'Error sending friend request'
     end
@@ -16,8 +12,7 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find_by(user_id: params[:friend_id].to_i, friend_id: current_user.id)
-    @friendship[:confirmed] = true
-    if @friendship.save
+    if current_user.confirm_friend(@friendship.user.id)
       flash[:success] = 'friend request accepted'
     else
       flash[:warning] = 'error accepting friend request'
