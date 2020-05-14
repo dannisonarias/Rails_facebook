@@ -32,24 +32,11 @@ class User < ApplicationRecord
     friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
   end
 
-  # Users who have requested to be friends
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-  end
-
   def confirm_friend(user)
     friendship = inverse_friendships.find { |i| i.user.id == user }
     friendship.confirmed = true
-    begin
-      ActiveRecord::Base.transaction do
-        friendship.save
-        Friendship.create(user_id: friendship.friend_id, friend_id: friendship.user_id, confirmed: true)
-      end
-    true
-    rescue 
-      # The transaction was aborted with a ROLLBACK.  
-      false
-    end
+    friendship.save
+    Friendship.create(user_id: friendship.friend_id, friend_id: friendship.user_id, confirmed: true)
   end
 
   def friend?(user)
