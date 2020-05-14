@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(user_id: current_user.id, friend_id: friendship_params[:friend_id])
     # @reverse_friendship = Friendship.new(friend_id: current_user.id, user_id: friendship_params[:friend_id])
     if @friendship.valid?
-        @friendship.save
+      @friendship.save
     else
       flash[:warning] = 'Error sending friend request'
     end
