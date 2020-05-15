@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_friends, only: :show
 
   def index
-    @users = User.includes(:friendships)
+    @users = User.all.includes(:friendships).to_a
   end
 
   def show
