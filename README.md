@@ -1,20 +1,15 @@
 # Scaffold for social media app with Ruby on Rails
+This app was built to have similar functionalities to Facebook, wherein users can sign up for a new account or sign in with their own Facebook account, create posts, like and comment on others' posts, and send friend requests to other users.
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
-igr
-This README would normally document whatever steps are necessary to get the
+## Live Demo
+> https://cryptic-fjord-20559.herokuapp.com/
 
 
 ## Built With
 
 - Ruby v2.6.5
 - Ruby on Rails v5.2.4
-
-## Live Demo
-
-TBA
-
 
 ## Getting Started
 
@@ -59,15 +54,17 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
 ### Deployment
 
 TBA
 
-## Authors
+## Author
 
-TBA
+👤 **Dannison Arias**
+
+- Github: [@dannisonarias](https://github.com/dannisonarias)
+- Twitter: [@AriasDannison](https://twitter.com/AriasDannison)
+- Linkedin: [Dannison Arias](https://www.linkedin.com/in/dannison-arias-777919190/)
 
 ## 🤝 Contributing
 
@@ -81,11 +78,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-https://www.linkedin.com/in/kspranav10/
-
-TBA
+- Microverse
+- The Odin Project
 
 ## 📝 License
 
-TBA
-
+This project is [MIT](./license.md) licensed.
