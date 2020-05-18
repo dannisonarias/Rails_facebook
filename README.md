@@ -1,24 +1,86 @@
-# README
+# Scaffold for social media app with Ruby on Rails
+This app was built to have similar functionalities to Facebook, wherein users can sign up for a new account or sign in with their own Facebook account, create posts, like and comment on others' posts, and send friend requests to other users.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Live Demo
+> https://cryptic-fjord-20559.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby v2.6.5
+- Ruby on Rails v5.2.4
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+Ruby: 2.6.3
+Rails: 5.2.3
+Postgres: >=9.5
 
-* Deployment instructions
+### Setup
 
-* ...
+Instal gems with:
+
+```
+bundle install
+```
+
+Setup database with:
+
+```
+   rails db:create
+   rails db:migrate
+```
+
+
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+    rpsec --format documentation
+```
+
+### Deployment
+
+TBA
+
+## Author
+
+👤 **Dannison Arias**
+
+- Github: [@dannisonarias](https://github.com/dannisonarias)
+- Twitter: [@AriasDannison](https://twitter.com/AriasDannison)
+- Linkedin: [Dannison Arias](https://www.linkedin.com/in/dannison-arias-777919190/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse
+- The Odin Project
+
+## 📝 License
+
+This project is [MIT](./license.md) licensed.

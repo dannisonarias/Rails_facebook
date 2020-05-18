@@ -1,0 +1,45 @@
+<%=console if Rails.env == "development"%>
+<section class="user-section">
+  <h2><%= "Name: #{@user.name}" %></h2>
+  <article class="timeline">
+    <h3>Recent posts:</h3>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+  </article>
+</section>
+
+<div class="d-flex">
+  <section class="user-section mx-3">
+  <h2>friends</h2>
+  <ul class="posts">
+  <%@user.friends.each do |friendship|%>
+  <li><%=friendship.name.capitalize%></li>
+  <%end%>
+  </ul>
+  </section>
+  <%if current_user == @user %>
+      <section class="user-section text-nowrap">
+    <ul>
+      <h2>pending friends</h2>
+      <%current_user.pending_friends.each do |friend|%>
+            <li>
+              <%=friend.name.capitalize%>
+            </li>
+      <%end%>
+      </ul>
+    </section>
+    <section class="user-section text-nowrap">
+    <ul>
+      <h2>Friend requests</h2>
+      <%current_user.friend_requests.each do |friend|%>
+            <li>
+              <%=friend.name.capitalize%>
+              <%= link_to 'Accept Friend Request',  friendship_path(friend_id:friend.id), class: 'btn btn-primary', method:"patch" %>
+              <%= link_to 'Decline Friend Request',  friendship_path(friend_id:friend.id), class: 'btn btn-danger', method:"delete" %>
+            </li>
+      <%end%>
+      </ul>
+    </section>
+  <%end%>
+</div>
